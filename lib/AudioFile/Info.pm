@@ -8,10 +8,7 @@ use Carp;
 use AudioFile::Info::Ogg;
 use AudioFile::Info::MP3;
 
-our $VERSION = '0.01';
-
-
-# Preloaded methods go here.
+our $VERSION = sprintf "%d.%02d", '$Revision$ ' =~ /(\d+)\.(\d+)/;
 
 sub new {
   my $class = shift;

@@ -7,6 +7,8 @@ use Carp;
 
 use Ogg::Vorbis::Header;
 
+our $VERSION = sprintf "%d.%02d", '$Revision$ ' =~ /(\d+)\.(\d+)/;
+
 my %data = (artist => 'artist',
             title  => 'title',
             album  => 'album',

@@ -7,7 +7,7 @@ use Carp;
 
 use MP3::ID3Lib;
 
-our $VERSION = '0.01';
+our $VERSION = sprintf "%d.%02d", '$Revision$ ' =~ /(\d+)\.(\d+)/;
 
 my %data = (artist => 'TPE1',
             title  => 'TIT2',
