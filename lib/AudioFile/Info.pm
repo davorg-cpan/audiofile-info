@@ -63,11 +63,16 @@ AudioFile::Info - Perl extension to get info from audio files.
         'Year:   ', $song->year, "\n",
         'Genre:  ', $song->genre, "\n";
 
+  $song->title('something else'); # Changes the title
+
 =head1 ABSTRACT
 
 AudioFile::Info is a simple way to get track information out of an audio
 file. It gives a unified interface for extracting information from both
 MP3 and Ogg Vorbis files.
+
+Some AudioFile::Info plugins also have the ability to write data back
+to the file.
 
 =head1 DESCRIPTION
 
@@ -109,20 +114,23 @@ of information about the file.
 Currently you can access the title, artist, album, track number, year
 and genre of the file.
 
-Currently you can only read data from the files. You can't alter it an
-write it back.
+With certain plugins (see below for a description of plugins) you can
+now write data back to the file. This is as simple as passing a new string
+to the accessor function.
+
+  $song->title('something new');
 
 =head2 AudioFile::Info Plugins
 
 AudioFile::Info is simply a wrapper around various other modules which
-read MP3 and Ogg Vorbis files. It makes use of module by using plugin
-modules which act as an interface between AudioFile::Info and the
-other modules. AudioFile::Info is pretty much useless without at
-least one these plugins installed.
+read and write MP3 and Ogg Vorbis files. It makes use of these modules
+by using plugin modules which act as an interface between
+AudioFile::Info and the other modules. AudioFile::Info is pretty much
+useless without at least one these plugins installed.
 
 Each time you install a plugin, AudioFile::Info notes how it compares
 with other installed plugins. It then works out how which of your
-installed plugins is best for handling the variosu types of audio
+installed plugins is best for handling the various types of audio
 files. When you use the module to read a file it will use the 
 "best" plugin for the file type.
 
@@ -157,11 +165,20 @@ MP3::Info
 
 =item *
 
+MP3::Tag
+
+=item *
+
+Ogg::Vorbis::Header
+
+=item *
+
 Ogg::Vorbis::Header::PurePerl
 
 =back
 
-Plugins for other modules will appear soon.
+Plugins for other modules may appear in the future. Let me know if you
+want a plugin that doesn't already exist.
 
 =head2 EXPORT
 
