@@ -1,0 +1,22 @@
+--- #YAML:1.0
+name: AudioFile-Info
+version: 0.01
+license: perl
+distribution_type: module
+requires:
+  MP3::ID3Lib: 0
+  Ogg::Vorbis::Header: 0
+  perl: 5.6.0
+recommends: {}
+build_requires: {}
+conflicts: {}
+provides:
+  AudioFile::Info:
+    file: lib/AudioFile/Info.pm
+    version: 0.01
+  AudioFile::Info::MP3:
+    file: lib/AudioFile/Info/MP3.pm
+    version: 0.01
+  AudioFile::Info::Ogg:
+    file: lib/AudioFile/Info/Ogg.pm
+generated_by: Module::Build version 0.19

@@ -1,0 +1,6 @@
+Revision history for Perl extension AudioFile::Info.
+
+0.01  Sun Jul  6 17:23:08 2003
+	- original version; created by h2xs 1.22 with options
+		-b5.6.0 -A -X -n AudioFile::Info
+
