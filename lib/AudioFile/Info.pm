@@ -82,12 +82,6 @@ AudioFile::Info is my solution to that problem. It works on both MP3
 and Ogg Vorbis files and gives an identical interface for dealing with
 both of them.
 
-AudioFile::Info is just a wrapper around the modules MP3::ID3Lib and
-Ogg::Vorbis::Header, so you'll need to have these installed.
-
-Incidently, it's also got a simpler inteface than either of its two
-underlying modules.
-
 =head2 Using AudioFile::Info
 
 To use AudioFile::Info in your programs you simply load the module
@@ -118,32 +112,68 @@ and genre of the file.
 Currently you can only read data from the files. You can't alter it an
 write it back.
 
+=head2 AudioFile::Info Plugins
+
+AudioFile::Info is simply a wrapper around various other modules which
+read MP3 and Ogg Vorbis files. It makes use of module by using plugin
+modules which act as an interface between AudioFile::Info and the
+other modules. AudioFile::Info is pretty much useless without at
+least one these plugins installed.
+
+Each time you install a plugin, AudioFile::Info notes how it compares
+with other installed plugins. It then works out how which of your
+installed plugins is best for handling the variosu types of audio
+files. When you use the module to read a file it will use the 
+"best" plugin for the file type.
+
+You can override this behaviour and tell it to use a particular
+plugin by using an extended version of the C<new> method.
+
+C<new> takes an optional argument which is a reference to a hash
+that contains details of which plugin to use for each file type.
+You use it like this.
+
+  my $song = AudioFile::Info->new($file,
+                                  { mp3 => 'AudioFile::Info::MP3::Info' });
+
+In this case, if C<$file> is the name of an MP3 file then 
+AudioFile::Info will use C<AudioFile::Info::MP3::Info> to handle it
+rather than the default MP3 plugin. If C<$file> contains the name
+of an Ogg Vorbis file then the default Ogg Vorbis plugin will still
+be used. You can change the Ogg Vorbis plugin by using the C<ogg>
+key in the optional hash.
+
+Currently plugins are available for the following modules.
+
+=over 4
+
+=item *
+
+MP3::ID3Lib
+
+=item *
+
+MP3::Info
+
+=item *
+
+Ogg::Vorbis::Header::PurePerl
+
+=back
+
+Plugins for other modules will appear soon.
+
 =head2 EXPORT
 
 None.
 
 =head1 SEE ALSO
 
-=over 4
-
-=item *
-
-L<MP3::ID3Lib> (which is a wrapper around I<id3lib>,
-L<http://id3lib.sourceforge.net/>)
-
-=item *
-
-L<Ogg::Vorbis::Header>
-
-=back
+The various plugin modules.
 
 =head1 TO DO
 
 =over 4
-
-=item *
-
-Using alternative ID3 and Ogg Vorbis header reading modules.
 
 =item *
 
