@@ -1,50 +1,6 @@
-package AudioFile::Info;
-
-use 5.006;
-use strict;
-use warnings;
-use Carp;
-
-use YAML 'LoadFile';
-
-our $VERSION = sprintf "%d.%02d", '$Revision$ ' =~ /(\d+)\.(\d+)/;
-
-sub new {
-  my $class = shift;
-  my $file = shift or die "No music file given.";
-
-  my $param = shift || {};
-
-  my $path = $INC{'AudioFile/Info.pm'};
-
-  $path =~ s/Info.pm$/plugins.yaml/;
-
-  my ($ext) = $file =~ /\.(\w+)$/;
-  die "Can't work out the type of the file $file\n"
-    unless defined $ext;
-
-  $ext = lc $ext;
-
-  my $pkg = $param->{$ext};
-
-  unless (defined $pkg) {
-    my $config = LoadFile($path);
-
-    die "No default $ext file handler\n"
-        unless exists $config->{default}{$ext};
-
-    $pkg = $config->{default}{$ext}{name};
-  }
-
-  eval "require $pkg";
-  $pkg->import;
-
-  return $pkg->new($file);
-}
-
-
-1;
-__END__
+#
+# $Id$
+#
 
 =head1 NAME
 
@@ -180,6 +136,75 @@ Ogg::Vorbis::Header::PurePerl
 Plugins for other modules may appear in the future. Let me know if you
 want a plugin that doesn't already exist.
 
+=cut
+
+package AudioFile::Info;
+
+use 5.006;
+use strict;
+use warnings;
+use Carp;
+
+use YAML 'LoadFile';
+
+our $VERSION = sprintf "%d.%02d", '$Revision$ ' =~ /(\d+)\.(\d+)/;
+
+=head1 METHODS
+
+=head2 AudioFile::Info->new(FILE, [\%OPTIONS])
+
+Constructor method which returns a new Audio::File::Info object. Well,
+actually it returns an instance of one of the AudioFile::Info plugin
+objects, but for the average user the difference is largely academic.
+
+Takes one mandatory argument, which is a full local path to an audio
+file, and an optional reference to a hash containing options.
+
+Currently the only options the method understands are 'mp3' or 'ogg'.
+The corresponding values for these keys is the name of a plugin module
+to use to process files of that type. This will override the default
+plugin which AudioFile::Info will choose for itself from the installed
+plugins.
+
+=cut
+
+sub new {
+  my $class = shift;
+  my $file = shift or die "No music file given.";
+
+  my $param = shift || {};
+
+  my $path = $INC{'AudioFile/Info.pm'};
+
+  $path =~ s/Info.pm$/plugins.yaml/;
+
+  my ($ext) = $file =~ /\.(\w+)$/;
+  die "Can't work out the type of the file $file\n"
+    unless defined $ext;
+
+  $ext = lc $ext;
+
+  my $pkg = $param->{$ext};
+
+  unless (defined $pkg) {
+    my $config = LoadFile($path);
+
+    die "No default $ext file handler\n"
+        unless exists $config->{default}{$ext};
+
+    $pkg = $config->{default}{$ext}{name};
+  }
+
+  eval "require $pkg";
+  $pkg->import;
+
+  return $pkg->new($file);
+}
+
+
+1;
+__END__
+
 =head2 EXPORT
 
 None.
@@ -208,7 +233,7 @@ Dave Cross, E<lt>dave@dave.org.ukE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2003 by Dave Cross
+Copyright 2003-2005 by Dave Cross
 
 This library is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.
