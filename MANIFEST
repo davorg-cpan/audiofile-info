@@ -4,9 +4,4 @@ MANIFEST
 META.yml
 README
 lib/AudioFile/Info.pm
-lib/AudioFile/Info/MP3.pm
-lib/AudioFile/Info/Ogg.pm
 t/1.t
-t/2.t
-t/test.mp3
-t/test.ogg
