@@ -1,19 +1,17 @@
-# Before `make install' is performed this script should be runnable with
-# `make test'. After `make install' it should work as `perl 1.t'
+use Test::More tests => 4;
+BEGIN { use_ok('AudioFile::Info') }
 
-#########################
-
-# change 'tests => 1' to 'tests => last_test_to_print';
-
-use Test;
-BEGIN { plan tests => 1 };
-use AudioFile::Info;
-ok(1);
-
-#########################
-
-# Insert your test code below, the Test::More module is use()ed here so read
-# its man page ( perldoc Test::More ) for help writing this test script.
-#
 # Hard to test anything really as we don't have any plugins installed
 # at this point
+#
+# Hmm... ok, let's try and test some stuff that shouldn't work :)
+
+eval { AudioFile::Info->new };
+ok($@);
+
+eval { AudioFile::Info->new('file_with_no_ext') };
+ok($@);
+
+eval { AudioFile::Info->new('file_with_bad_ext.foo') };
+ok($@);
+
