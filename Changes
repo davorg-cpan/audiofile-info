@@ -1,3 +1,8 @@
+2003-09-28 13:39  dave
+
+	* lib/AudioFile/Info.pm (1.4): Changed docs to discuss plugins.
+	* Changes (1.4), MANIFEST (1.3): Added Makefile.PL to MANIFEST.
+
 2003-09-27 20:37  dave
 
 	* Changes (1.3), META.yml (1.3), README (1.3): Regenerated
@@ -15,17 +20,31 @@
 	* lib/AudioFile/Info.pm (1.3): Moved plugins out into separate
 	distributions.	Introduced repository of plugins.
 
+2003-09-27 17:05  dave
+
+	* lib/AudioFile/Info/: MP3.pm (1.3), Ogg.pm (1.3): Moved to
+	separate plugin projects.
+
 2003-08-10 18:54  dave
 
-	* lib/AudioFile/Info.pm (1.2): Added RCS tags
+	* lib/AudioFile/: Info.pm (1.2), Info/MP3.pm (1.2), Info/Ogg.pm
+	(1.2): Added RCS tags
+
+2003-08-10 18:51  dave
+
 	* AudioFile-Info-0.01.tar (1.2): Removed tarball
+
+2003-08-10 18:49  dave
+
 	* AudioFile-Info-0.01.tar (1.1), Build.PL (1.1), Changes (1.1),
 	MANIFEST (1.1), META.yml (1.1), README (1.1), lib/AudioFile/Info.pm
+	(1.1), lib/AudioFile/Info/MP3.pm (1.1), lib/AudioFile/Info/Ogg.pm
 	(1.1), t/1.t (1.1), t/2.t (1.1), t/test.mp3 (1.1), t/test.ogg
 	(1.1): Initial revision
 	* AudioFile-Info-0.01.tar (1.1.1.1), Build.PL (1.1.1.1), Changes
 	(1.1.1.1), MANIFEST (1.1.1.1), META.yml (1.1.1.1), README
-	(1.1.1.1), lib/AudioFile/Info.pm (1.1.1.1), t/1.t (1.1.1.1), t/2.t
-	(1.1.1.1), t/test.mp3 (1.1.1.1), t/test.ogg (1.1.1.1): Initial
-	import
+	(1.1.1.1), lib/AudioFile/Info.pm (1.1.1.1),
+	lib/AudioFile/Info/MP3.pm (1.1.1.1), lib/AudioFile/Info/Ogg.pm
+	(1.1.1.1), t/1.t (1.1.1.1), t/2.t (1.1.1.1), t/test.mp3 (1.1.1.1),
+	t/test.ogg (1.1.1.1): Initial import
 
