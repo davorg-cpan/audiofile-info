@@ -1,16 +1,8 @@
-AudioFile/Info version 0.01
-===========================
+AudioFile/Info version
+======================
 
-The README is used to introduce the module and provide instructions on
-how to install the module, any machine dependencies it may have (for
-example C compilers and installed libraries) and any other information
-that should be provided before the module is installed.
-
-A README file is required for CPAN modules since CPAN extracts the
-README file from a module distribution so that people browsing the
-archive can use it get an idea of the modules uses. It is usually a
-good idea to provide version information here so that people can
-decide whether fixes for the module are worth downloading.
+AudioFile::Info is a module for extracting information from audio files.
+Currently it works with both MP3 and Ogg Vorbis files.
 
 INSTALLATION
 
@@ -23,10 +15,8 @@ To install this module type the following:
 
 DEPENDENCIES
 
-This module requires these other modules and libraries:
-
-  * MP3::ID3Lib
-  * Ogg::Vorbis::Headers
+You will need at least one of the AudioFile::Info plugin modules
+in order to do anything interesting with this module.
 
 COPYRIGHT AND LICENCE
 
