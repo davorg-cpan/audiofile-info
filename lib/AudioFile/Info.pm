@@ -19,8 +19,6 @@ sub new {
 
   $path =~ s/Info.pm$/plugins.yaml/;
 
-  my $config = LoadFile($path);
-
   my ($ext) = $file =~ /\.(\w+)$/;
   die "Can't work out the type of the file $file\n"
     unless defined $ext;
@@ -30,6 +28,8 @@ sub new {
   my $pkg = $param->{$ext};
 
   unless (defined $pkg) {
+    my $config = LoadFile($path);
+
     die "No default $ext file handler\n"
         unless exists $config->{default}{$ext};
 
