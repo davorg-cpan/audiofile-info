@@ -5,8 +5,7 @@ use strict;
 use warnings;
 use Carp;
 
-use AudioFile::Info::Ogg;
-use AudioFile::Info::MP3;
+use YAML 'LoadFile';
 
 our $VERSION = sprintf "%d.%02d", '$Revision$ ' =~ /(\d+)\.(\d+)/;
 
@@ -14,11 +13,33 @@ sub new {
   my $class = shift;
   my $file = shift or die "No music file given.";
 
-  if ($file =~ /\.ogg$/i) {
-    return AudioFile::Info::Ogg->new($file);
-  } elsif ($file =~ /\.mp3$/i) {
-    return AudioFile::Info::MP3->new($file);
+  my $param = shift || {};
+
+  my $path = $INC{'AudioFile/Info.pm'};
+
+  $path =~ s/Info.pm$/plugins.yaml/;
+
+  my $config = LoadFile($path);
+
+  my ($ext) = $file =~ /\.(\w+)$/;
+  die "Can't work out the type of the file $file\n"
+    unless defined $ext;
+
+  $ext = lc $ext;
+
+  my $pkg = $param->{$ext};
+
+  unless (defined $pkg) {
+    die "No default $ext file handler\n"
+        unless exists $config->{default}{$ext};
+
+    $pkg = $config->{default}{$ext}{name};
   }
+
+  eval "require $pkg";
+  $pkg->import;
+
+  return $pkg->new($file);
 }
 
 
