@@ -1,49 +1,28 @@
+2003-09-27 20:37  dave
+
+	* Changes (1.3), META.yml (1.3), README (1.3): Regenerated
+	META.yml.  Changed README to describe Module::Build installation
+	procedure.
+
 2003-09-27 18:03  dave
 
 	* t/1.t (1.2): Stripped down test file.
-
-2003-09-27 18:02  dave
-
 	* t/: 2.t (1.2), test.mp3 (1.2), test.ogg (1.2): No longer required
-
-2003-09-27 18:01  dave
-
 	* Changes (1.2), META.yml (1.2): Changes for the project re-org.
-
-2003-09-27 18:00  dave
-
 	* Build.PL (1.2): Changes for the re-org of the project.
-
-2003-09-27 17:59  dave
-
 	* README (1.2): Updates for the reorganisation.
-
-2003-09-27 17:58  dave
-
 	* MANIFEST (1.2): Various changes.
-
-2003-09-27 17:54  dave
-
 	* lib/AudioFile/Info.pm (1.3): Moved plugins out into separate
 	distributions.	Introduced repository of plugins.
 
 2003-08-10 18:54  dave
 
 	* lib/AudioFile/Info.pm (1.2): Added RCS tags
-
-2003-08-10 18:51  dave
-
 	* AudioFile-Info-0.01.tar (1.2): Removed tarball
-
-2003-08-10 18:49  dave
-
 	* AudioFile-Info-0.01.tar (1.1), Build.PL (1.1), Changes (1.1),
 	MANIFEST (1.1), META.yml (1.1), README (1.1), lib/AudioFile/Info.pm
 	(1.1), t/1.t (1.1), t/2.t (1.1), t/test.mp3 (1.1), t/test.ogg
 	(1.1): Initial revision
-
-2003-08-10 18:49  dave
-
 	* AudioFile-Info-0.01.tar (1.1.1.1), Build.PL (1.1.1.1), Changes
 	(1.1.1.1), MANIFEST (1.1.1.1), META.yml (1.1.1.1), README
 	(1.1.1.1), lib/AudioFile/Info.pm (1.1.1.1), t/1.t (1.1.1.1), t/2.t
