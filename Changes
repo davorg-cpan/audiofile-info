@@ -4,3 +4,7 @@ Revision history for Perl extension AudioFile::Info.
 	- original version; created by h2xs 1.22 with options
 		-b5.6.0 -A -X -n AudioFile::Info
 
+1.02  Sun Aug 10 18:58:00 2003
+        - Removed tarball from MANIFEST (doh!)
+        - Put under CVS
+        - Added RCS tags
