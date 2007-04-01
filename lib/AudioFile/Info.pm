@@ -147,7 +147,7 @@ use Carp;
 
 use YAML 'LoadFile';
 
-our $VERSION = sprintf "%d.%02d", '$Revision$ ' =~ /(\d+)\.(\d+)/;
+our $VERSION = 1.09;
 
 =head1 METHODS
 
