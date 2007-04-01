@@ -7,3 +7,4 @@ lib/AudioFile/Info.pm
 t/1.t
 t/2_pod.t
 t/3_pod_coverage.t
+Makefile.PL
