@@ -10,4 +10,4 @@ before_install:
   cpanm -n Devel::Cover::Report::Coveralls
 
 script:
-  perl Build.PL && ./Build build && cover -test -report coveralls
+  perl Build.PL && ./Build build && cover -test +ignore Build.pm -report coveralls
