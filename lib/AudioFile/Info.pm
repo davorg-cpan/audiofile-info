@@ -1,7 +1,3 @@
-#
-# $Id$
-#
-
 =head1 NAME
 
 AudioFile::Info - Perl extension to get info from audio files.
@@ -147,7 +143,7 @@ use Carp;
 
 use YAML 'LoadFile';
 
-our $VERSION = 1.09;
+our $VERSION = '1.10.0';
 
 =head1 METHODS
 
