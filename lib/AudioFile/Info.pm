@@ -143,7 +143,7 @@ use Carp;
 
 use YAML 'LoadFile';
 
-our $VERSION = '1.10.2';
+our $VERSION = '1.10.3';
 
 =head1 METHODS
 
