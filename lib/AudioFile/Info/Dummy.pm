@@ -31,7 +31,7 @@ sub new {
 sub artist { return 'ARTIST' }
 sub title  { return 'TITLE'  }
 sub album  { return 'ALBUM'  }
-sub track  { return 'TRACK'  }
+sub track  { return 0        }
 sub year   { return 'YEAR'   }
 sub genre  { return 'GENRE'  }
 
