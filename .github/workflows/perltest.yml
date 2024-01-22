@@ -8,7 +8,6 @@ on:
   workflow_dispatch:
 
 jobs:
-<<<<<<< HEAD
   test:
     uses: PerlToolsTeam/github_workflows/.github/workflows/cpan-test.yml@main
 
