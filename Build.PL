@@ -12,11 +12,11 @@ my $build = new Module::Build(
         resources  => {
             repository => {
                 type => 'git',
-                url  => 'https://github.com/davorg/audiofile-info.git',
-                web  => 'https://github.com/davorg/audiofile-info',
+                url  => 'https://github.com/davorg-cpan/audiofile-info.git',
+                web  => 'https://github.com/davorg-cpan/audiofile-info',
             },
             bugtracker => {
-                web  => 'https://github.com/davorg/audiofile-info/issues',
+                web  => 'https://github.com/davorg-cpan/audiofile-info/issues',
             },
         },
     },
